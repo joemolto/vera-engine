@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.env.test
+.DS_Store
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+supabase/.temp/

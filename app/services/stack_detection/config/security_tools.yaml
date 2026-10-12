@@ -1,0 +1,138 @@
+# Curated security-tool dictionary.
+# Each entry: canonical_name -> {category, aliases[]}
+# Aliases are matched case-insensitively as whole-word substrings against
+# detection text. Keep aliases conservative — false positives erode the trust
+# the whole confidence layer exists to protect.
+
+CrowdStrike:
+  category: edr
+  aliases: ["CrowdStrike", "Falcon Insight", "CrowdStrike Falcon"]
+
+SentinelOne:
+  category: edr
+  aliases: ["SentinelOne", "Sentinel One", "Singularity XDR"]
+
+Microsoft Defender for Endpoint:
+  category: edr
+  aliases:
+    - "Defender for Endpoint"
+    - "MDE"
+    - "Microsoft Defender ATP"
+    - "MDATP"
+    - "Microsoft Defender for Cloud"
+    - "Microsoft Defender XDR"
+
+Carbon Black:
+  category: edr
+  aliases: ["Carbon Black", "VMware Carbon Black", "Cb Defense"]
+
+Splunk:
+  category: siem
+  aliases: ["Splunk", "Splunk Enterprise Security", "Splunk ES"]
+
+Microsoft Sentinel:
+  category: siem
+  aliases: ["Microsoft Sentinel", "Azure Sentinel"]
+
+IBM QRadar:
+  category: siem
+  aliases: ["QRadar", "IBM QRadar"]
+
+Sumo Logic:
+  category: siem
+  aliases: ["Sumo Logic", "SumoLogic"]
+
+Okta:
+  category: iam
+  aliases:
+    - "Okta"
+    - "Okta Workforce Identity"
+    - "Okta SSO"
+    - "Okta Identity Cloud"
+    - "Okta Customer Identity"
+    - "Auth0"
+
+Ping Identity:
+  category: iam
+  aliases: ["Ping Identity", "PingFederate", "PingOne"]
+
+Azure Active Directory:
+  category: iam
+  aliases:
+    - "Azure AD"
+    - "Entra ID"
+    - "Microsoft Entra ID"
+    - "Microsoft Entra"
+    - "Azure Active Directory"
+    - "AAD"
+
+Zscaler:
+  category: waf_cdn
+  aliases:
+    - "Zscaler"
+    - "ZIA"
+    - "ZPA"
+    - "Zscaler Internet Access"
+    - "Zscaler Private Access"
+    - "Zscaler Digital Experience"
+    - "Zscaler Client Connector"
+
+Cloudflare:
+  category: waf_cdn
+  aliases:
+    - "Cloudflare"
+    - "Cloudflare WAF"
+    - "Cloudflare Magic Transit"
+    - "Cloudflare Access"
+    - "Cloudflare Zero Trust"
+    - "Cloudflare Gateway"
+
+Akamai:
+  category: waf_cdn
+  aliases: ["Akamai", "Akamai Kona", "Kona Site Defender"]
+
+Proofpoint:
+  category: email_security
+  aliases:
+    - "Proofpoint"
+    - "Proofpoint Essentials"
+    - "Proofpoint TAP"
+    - "Proofpoint Email Protection"
+    - "Proofpoint Targeted Attack Protection"
+
+Mimecast:
+  category: email_security
+  aliases:
+    - "Mimecast"
+    - "Mimecast Secure Email Gateway"
+    - "Mimecast Email Security"
+    - "Mimecast Targeted Threat Protection"
+
+Abnormal Security:
+  category: email_security
+  aliases: ["Abnormal Security", "Abnormal"]
+
+AWS:
+  category: cloud
+  aliases: ["AWS", "Amazon Web Services"]
+
+Azure:
+  category: cloud
+  aliases: ["Microsoft Azure", "Azure Cloud"]
+
+Microsoft 365:
+  category: cloud
+  aliases:
+    - "Microsoft 365"
+    - "Office 365"
+    - "O365"
+    - "M365"
+    - "Microsoft 365 Copilot"
+    - "Microsoft 365 Planner"
+    - "Microsoft Planner"
+    - "Microsoft Teams"
+    - "SharePoint Online"
+
+GCP:
+  category: cloud
+  aliases: ["Google Cloud", "GCP", "Google Cloud Platform"]

@@ -1,0 +1,191 @@
+# DNS record substring -> vendor + category mappings.
+# Matched as case-insensitive substrings against record values.
+# Each entry: { match, vendor, category, record_types }
+# record_types restricts which DNS record types this pattern is valid against.
+
+patterns:
+  # ---- Email security (MX, SPF, DMARC) ----
+  - match: "pphosted.com"
+    vendor: Proofpoint
+    category: email_security
+    record_types: [MX, SPF]
+  - match: "mimecast.com"
+    vendor: Mimecast
+    category: email_security
+    record_types: [MX, SPF]
+  - match: "ppe-hosted.com"
+    vendor: Proofpoint
+    category: email_security
+    record_types: [MX, SPF]
+  - match: "barracudanetworks.com"
+    vendor: Barracuda
+    category: email_security
+    record_types: [MX, SPF]
+  - match: "iphmx.com"
+    vendor: Cisco Secure Email
+    category: email_security
+    record_types: [MX, SPF]
+  - match: "trendmicro.com"
+    vendor: Trend Micro
+    category: email_security
+    record_types: [MX, SPF]
+  - match: "fortimail"
+    vendor: Fortinet FortiMail
+    category: email_security
+    record_types: [MX]
+  - match: "messagelabs.com"
+    vendor: Broadcom (MessageLabs)
+    category: email_security
+    record_types: [MX]
+  - match: "mailcontrol.com"
+    vendor: Forcepoint
+    category: email_security
+    record_types: [MX]
+  - match: "mxlogic.net"
+    vendor: Skyhigh (MXLogic)
+    category: email_security
+    record_types: [MX]
+  - match: "zoho.com"
+    vendor: Zoho Mail
+    category: email_security
+    record_types: [MX, SPF]
+  - match: "mx.cloudflare.net"
+    vendor: Cloudflare Email Security
+    category: email_security
+    record_types: [MX]
+  - match: "protection.outlook.com"
+    vendor: Microsoft 365
+    category: email_security
+    record_types: [MX]
+  - match: "google.com"
+    vendor: Google Workspace
+    category: email_security
+    record_types: [MX]
+  - match: "googlemail.com"
+    vendor: Google Workspace
+    category: email_security
+    record_types: [MX]
+  - match: "_spf.google.com"
+    vendor: Google Workspace
+    category: email_security
+    record_types: [SPF]
+  - match: "spf.protection.outlook.com"
+    vendor: Microsoft 365
+    category: email_security
+    record_types: [SPF]
+  - match: "amazonses.com"
+    vendor: Amazon SES
+    category: email_security
+    record_types: [SPF]
+  - match: "sendgrid.net"
+    vendor: SendGrid
+    category: email_security
+    record_types: [SPF]
+  - match: "mailgun.org"
+    vendor: Mailgun
+    category: email_security
+    record_types: [SPF]
+
+  # ---- DMARC / SPF management + reporting platforms ----
+  # DMARC matched against the rua/ruf domains in the _dmarc TXT record;
+  # SPF matched against include: domains in the apex SPF record. These
+  # identify the vendor a company uses to run its email authentication —
+  # a strong "they've invested in email security" signal for a rep.
+  - match: "proofpoint.com"
+    vendor: Proofpoint
+    category: email_security
+    record_types: [DMARC]
+  - match: "dmarcian.com"
+    vendor: Dmarcian
+    category: email_security
+    record_types: [DMARC]
+  - match: "valimail.com"
+    vendor: Valimail
+    category: email_security
+    record_types: [DMARC]
+  - match: "dmarcanalyzer.com"
+    vendor: DMARC Analyzer
+    category: email_security
+    record_types: [DMARC]
+  - match: "powerdmarc.com"
+    vendor: PowerDMARC
+    category: email_security
+    record_types: [DMARC]
+  - match: "powerspf.com"
+    vendor: PowerDMARC
+    category: email_security
+    record_types: [SPF]
+  - match: "postmarkapp.com"
+    vendor: Postmark
+    category: email_security
+    record_types: [DMARC]
+  - match: "easydmarc"
+    vendor: EasyDMARC
+    category: email_security
+    record_types: [DMARC]
+  - match: "redsift"
+    vendor: Red Sift OnDMARC
+    category: email_security
+    record_types: [DMARC]
+  - match: "ondmarc"
+    vendor: Red Sift OnDMARC
+    category: email_security
+    record_types: [DMARC]
+  - match: "sendmarc"
+    vendor: Sendmarc
+    category: email_security
+    record_types: [DMARC]
+  - match: "agari.com"
+    vendor: Agari
+    category: email_security
+    record_types: [DMARC]
+  - match: "fraudmarc.com"
+    vendor: Fraudmarc
+    category: email_security
+    record_types: [DMARC]
+  - match: "uriports.com"
+    vendor: URIports
+    category: email_security
+    record_types: [DMARC]
+  - match: "skysnag"
+    vendor: Skysnag
+    category: email_security
+    record_types: [DMARC]
+  - match: "mailhardener"
+    vendor: Mailhardener
+    category: email_security
+    record_types: [DMARC]
+
+  # ---- Domain-verification tokens in apex TXT ----
+  # Verification tokens prove the domain owner has an active tenant with
+  # the vendor — almost as strong as MX/SPF for "they USE this product".
+  - match: "zscaler-verification-"
+    vendor: Zscaler
+    category: waf_cdn
+    record_types: [TXT]
+  - match: "ms=ms"
+    vendor: Microsoft 365
+    category: cloud
+    record_types: [TXT]
+
+  # ---- DNS / CDN / WAF (NS records) ----
+  - match: "awsdns"
+    vendor: AWS
+    category: cloud
+    record_types: [NS]
+  - match: "cloudflare.com"
+    vendor: Cloudflare
+    category: waf_cdn
+    record_types: [NS]
+  - match: "akam.net"
+    vendor: Akamai
+    category: waf_cdn
+    record_types: [NS]
+  - match: "azure-dns"
+    vendor: Azure
+    category: cloud
+    record_types: [NS]
+  - match: "googledomains.com"
+    vendor: GCP
+    category: cloud
+    record_types: [NS]
